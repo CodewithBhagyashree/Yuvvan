@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelli-Credit Dashboard</title>
+    <meta name="description" content="AI-powered Corporate Credit Appraisal System">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Phosphor Icons for Neo-Banking aesthetic -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 1. Left Sidebar Navigation -->
+        <aside class="sidebar glass-panel">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="ph ph-sparkle text-white"></i>
+                </div>
+                <div class="logo-text">Intelli-Credit<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--color-text-muted);">Engine</span></div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <i class="ph ph-chart-line-up ph-lg"></i> Overview
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-upload-simple ph-lg"></i> Data Ingestion
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-magnifying-glass ph-lg"></i> Research Agent
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-file-text ph-lg"></i> CAM Generator
+                </li>
+                <li class="nav-item">
+                    <i class="ph ph-gear ph-lg"></i> Settings
+                </li>
+            </ul>
+            
+            <div class="user-profile">
+                <div class="avatar">RS</div>
+                <div class="user-info">
+                    <div class="name">Rahul Sharma</div>
+                    <div class="role">Credit Analyst</div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Top Right Custom Calculator Toggle -->
+            <div style="position: absolute; top: 32px; right: 40px;">
+                <div class="calc-toggle" id="calcToggleBtn" title="Intelli-Calc">
+                    <i class="ph ph-calculator ph-lg"></i>
+                </div>
+            </div>
+
+            <!-- Section A: The Command Center -->
+            <header class="command-header">
+                <div class="greeting">
+                    <h1>Welcome back, Rahul.</h1>
+                    <p>Here is the latest credit intelligence synthesized for your portfolio.</p>
+                </div>
+                <div class="stat-cards">
+                    <div class="stat-card glass-panel" id="card1">
+                        <i class="ph ph-clock stat-icon"></i>
+                        <div class="stat-label">Pending Apps</div>
+                        <div class="stat-value">12</div>
+                    </div>
+                    <div class="stat-card glass-panel" id="card2">
+                        <i class="ph ph-brain stat-icon text-ai"></i>
+                        <div class="stat-label">AI Accuracy</div>
+                        <div class="stat-value" style="color: var(--color-success);">98.4%</div>
+                    </div>
+                    <div class="stat-card glass-panel" id="card3">
+                        <i class="ph ph-warning-circle stat-icon"></i>
+                        <div class="stat-label">Anomalies Detected</div>
+                        <div class="stat-value" style="color: var(--color-danger);">3</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Section B: The Data Ingestor -->
+                <section class="data-ingestion glass-panel">
+                    <div style="padding: 24px;">
+                        <h2 class="section-title">Data Ingestion Engine</h2>
+                        <div class="upload-zones">
+                            <div class="upload-zone" id="structuredZone">
+                                <i class="ph ph-table upload-icon"></i>
+                                <h3>Structured Data</h3>
+                                <p>Upload GST Returns (GSTR-2A/3B) & Bank Statements (CSV/Excel)</p>
+                            </div>
+                            <div class="upload-zone" id="unstructuredZone">
+                                <i class="ph ph-file-pdf upload-icon" style="color: var(--ai-purple);"></i>
+                                <h3>Unstructured Data</h3>
+                                <p>Upload Annual Reports, Legal Notices & MCA Filings (PDF/Doc)</p>
+                            </div>
+                        </div>
+                        <div class="terminal-log" id="terminalLog">
+                            <p>> Intelli-Credit Core Engine initialized v.4.2</p>
+                            <p>> Awaiting data ingestion... <span class="cursor"></span></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section C: The Research Agent -->
+                <section class="research-grid">
+                    <div class="glass-panel web-intel-feed">
+                        <h2 class="section-title">Live Web Intel (AI Scraped)</h2>
+                        <div class="feed-list" id="feedList">
+                            <div class="feed-item danger">
+                                <i class="ph ph-warning ph-lg" style="color: var(--color-danger); margin-top: 4px;"></i>
+                                <div class="feed-content">
+                                    <strong>Red Flag detected</strong>
+                                    <p>Promoter litigation found on e-Courts portal regarding subsidiary defaults.</p>
+                                </div>
+                            </div>
+                            <div class="feed-item warning">
+                                <i class="ph ph-newspaper ph-lg" style="color: #f59e0b; margin-top: 4px;"></i>
+                                <div class="feed-content">
+                                    <strong>Sector News</strong>
+                                    <p>RBI tightens NBFC rules, impacting cost of funds for Tier-2 borrowers.</p>
+                                </div>
+                            </div>
+                            <div class="feed-item">
+                                <i class="ph ph-check-circle ph-lg" style="color: var(--color-success); margin-top: 4px;"></i>
+                                <div class="feed-content">
+                                    <strong>Verification</strong>
+                                    <p>MCA filings match with audited financials provided for FY24.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-panel insight-portal">
+                        <h2 class="section-title">Primary Insight Portal</h2>
+                        <textarea class="insight-textarea" placeholder="Input Due Diligence / Site Visit Notes here (e.g., Factory found operating at 40% capacity...)"></textarea>
+                        <button class="btn-ai" id="analyzeBtn">
+                            <i class="ph ph-sparkle"></i> Analyze Nuances & Adjust Risk
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Section D: The Recommendation Engine -> Output -->
+                <section class="recommendation-engine glass-panel">
+                    <div class="verdict-banner rejected" id="verdictBanner">
+                        <div style="font-size: 0.9rem; margin-bottom: 8px; color: var(--color-text-muted);">AI Recommendation</div>
+                        <div class="verdict-status">REJECTED / HIGH RISK</div>
+                    </div>
+                    
+                    <div class="financials-box">
+                        <div class="fin-item">
+                            <span>Requested Limit</span>
+                            <span class="fin-value">₹50 Crores</span>
+                        </div>
+                        <div class="fin-item" style="border-left: 3px solid var(--color-danger);">
+                            <span>Recommended Limit</span>
+                            <span class="fin-value" style="color: var(--color-danger);">₹0 Crores</span>
+                        </div>
+                        <div class="fin-item">
+                            <span>Computed Risk Premium</span>
+                            <span class="fin-value">12.5%</span>
+                        </div>
+                        <div class="fin-item">
+                            <span>Avg DSCR (Predicted)</span>
+                            <span class="fin-value" style="color: var(--color-danger);">0.8x</span>
+                        </div>
+                    </div>
+
+                    <div class="radar-box">
+                        <!-- Custom Radar Chart Visual via CSS layout + svg if needed, but placeholder per prompt -->
+                        <div class="radar-chart-placeholder">
+                            <!-- In a full app, Chart.js would be used. Using CSS placeholder -->
+                        </div>
+                    </div>
+
+                    <div class="xai-box" style="grid-column: 1 / -1;">
+                        <h3 class="xai-title"><i class="ph ph-brain"></i> AI Decision Logic (Transparent View)</h3>
+                        <p class="xai-content">
+                            <strong>Reasoning:</strong> Rejected due to high litigation risk found in MCA filings during secondary research, despite stable GSTR-3B flows. Cross-leveraging bank statements revealed circular trading indicators with 3 related entities. Site visit notes supplied by analyst confirm sub-optimal capacity utilization (est. 40%). The compounded risk breaches the institution's threshold parameters.
+                        </p>
+                    </div>
+
+                    <div class="cam-action">
+                        <button class="btn-primary btn-massive" id="generateCamBtn">
+                            <i class="ph ph-file-doc" style="margin-right: 8px;"></i> Generate & Download Final CAM
+                        </button>
+                    </div>
+                </section>
+            </div>
+            
+            <div style="height: 100px;"></div>
+        </main>
+    </div>
+
+    <!-- Section E: Intelli-Credit Copilot (Floating AI Chat) -->
+    <div class="copilot-fab" id="copilotFab" title="Ask Intelli-Credit">
+        <i class="ph ph-sparkle"></i>
+    </div>
+
+    <div class="chat-widget glass-panel" id="chatWidget">
+        <div class="chat-header">
+            <i class="ph ph-robot ph-xl" style="color: var(--ai-cyan);"></i>
+            <div>
+                <strong style="display: block;">Intelli-Credit Assistant</strong>
+                <span style="font-size: 0.75rem; color: var(--color-text-muted);">Ask me about the CAM or Data</span>
+            </div>
+            <button id="closeChatBtn" style="margin-left: auto; background: none; border: none; color: white; cursor: pointer;">
+                <i class="ph ph-x ph-lg"></i>
+            </button>
+        </div>
+        
+        <div class="chat-body" id="chatBody">
+            <div class="chat-bubble ai">
+                Hello Rahul. I've analyzed the latest portfolio data. How can I assist you with this credit appraisal?
+            </div>
+            <!-- Typing indicator initially hidden -->
+            <div class="chat-bubble ai typing-indicator" id="typingIndicator" style="display: none;">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        
+        <div class="chat-footer">
+            <div class="smart-chips">
+                <div class="chip">Explain GST vs Bank Statement anomalies</div>
+                <div class="chip">Summarize promoter litigation news</div>
+                <div class="chip">Why is the risk premium set to 12.5%?</div>
+            </div>
+            <div class="chat-input-area" style="margin-top: 12px;">
+                <input type="text" class="chat-input" placeholder="Type your query..." id="chatInput">
+                <button class="send-btn" id="sendMessageBtn">
+                    <i class="ph ph-paper-plane-right ph-lg"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section F: Intelli-Calc Widget -->
+    <div class="calc-widget" id="calcWidget">
+        <div class="calc-header">
+            <h3><i class="ph ph-calculator"></i> Intelli-Calc</h3>
+            <button class="close-calc" id="closeCalcBtn"><i class="ph ph-x"></i></button>
+        </div>
+        
+        <div class="mode-switch">
+            <button class="mode-btn active" id="modeBasic">Basic</button>
+            <button class="mode-btn" id="modeCredit">Credit Mode</button>
+        </div>
+        
+        <div class="calc-display">
+            <div class="calc-memory" id="calcMem"></div>
+            <div class="calc-result" id="calcRes">0</div>
+        </div>
+        
+        <div class="calc-main-area" id="calcMainArea">
+            <div class="calc-grid">
+                <button class="calc-key" onclick="clearCalc()">C</button>
+                <button class="calc-key" onclick="appendToCalc('(')">(</button>
+                <button class="calc-key" onclick="appendToCalc(')')">)</button>
+                <button class="calc-key operator" onclick="appendToCalc('/')">/</button>
+                
+                <button class="calc-key" onclick="appendToCalc('7')">7</button>
+                <button class="calc-key" onclick="appendToCalc('8')">8</button>
+                <button class="calc-key" onclick="appendToCalc('9')">9</button>
+                <button class="calc-key operator" onclick="appendToCalc('*')">*</button>
+                
+                <button class="calc-key" onclick="appendToCalc('4')">4</button>
+                <button class="calc-key" onclick="appendToCalc('5')">5</button>
+                <button class="calc-key" onclick="appendToCalc('6')">6</button>
+                <button class="calc-key operator" onclick="appendToCalc('-')">-</button>
+                
+                <button class="calc-key" onclick="appendToCalc('1')">1</button>
+                <button class="calc-key" onclick="appendToCalc('2')">2</button>
+                <button class="calc-key" onclick="appendToCalc('3')">3</button>
+                <button class="calc-key operator" onclick="appendToCalc('+')">+</button>
+                
+                <button class="calc-key" onclick="appendToCalc('0')" style="grid-column: span 2;">0</button>
+                <button class="calc-key" onclick="appendToCalc('.')">.</button>
+                <button class="calc-key equals" onclick="calculateResult()">=</button>
+            </div>
+            
+            <div class="credit-inputs">
+                <div class="input-group">
+                    <label>Requested Loan Amount (₹)</label>
+                    <input type="number" id="c_loan" placeholder="e.g. 50000000">
+                </div>
+                <div class="input-group">
+                    <label>Interest Rate (%)</label>
+                    <input type="number" id="c_rate" placeholder="e.g. 12.5" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Tenure (Months)</label>
+                    <input type="number" id="c_tenure" placeholder="e.g. 60">
+                </div>
+                <button class="btn-ai" style="margin-top: 8px; width: 100%;" onclick="calculateEMI()">Calculate EMI & DSCR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Logic -->
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
