@@ -3,304 +3,400 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelli-Credit Dashboard</title>
-    <meta name="description" content="AI-powered Corporate Credit Appraisal System">
-    <link rel="stylesheet" href="./style.css">
-    <!-- Phosphor Icons for Neo-Banking aesthetic -->
+    <title>Intelli-Credit Engine</title>
+    <!-- Tailwind CSS for the aesthetic -> React/Tailwind style requested -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#151e32',
+                            900: '#0f172a', /* Requested Slate Blue */
+                            950: '#020617',
+                        },
+                        neon: {
+                            blue: '#3b82f6',
+                            cyan: '#06b6d4',
+                            red: '#ef4444',
+                            green: '#10b981'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <div class="app-container">
-        <!-- 1. Left Sidebar Navigation -->
-        <aside class="sidebar glass-panel">
-            <div class="logo-area">
-                <div class="logo-icon">
-                    <i class="ph ph-sparkle text-white"></i>
+<body class="bg-slate-900 text-slate-50 font-sans min-h-screen relative overflow-x-hidden p-6 md:p-10 antialiased selection:bg-neon-blue selection:text-white pb-32">
+
+    <!-- Glowing Orbs Background -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-[1800px] mx-auto relative z-10 flex flex-col gap-10">
+
+        <!-- HEADER -->
+        <header class="flex justify-between items-center bg-slate-800/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.5)]">
+                    <i class="ph ph-sparkle text-white text-2xl"></i>
                 </div>
-                <div class="logo-text">Intelli-Credit<br><span style="font-size: 0.8rem; font-weight: normal; color: var(--color-text-muted);">Engine</span></div>
+                <div>
+                    <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">Intelli-Credit Engine</h1>
+                    <p class="text-neon-cyan font-medium tracking-wide text-sm mt-1">Solving the Data Paradox</p>
+                </div>
             </div>
             
-            <ul class="nav-menu">
-                <li class="nav-item active">
-                    <i class="ph ph-chart-line-up ph-lg"></i> Overview
-                </li>
-                <li class="nav-item">
-                    <i class="ph ph-upload-simple ph-lg"></i> Data Ingestion
-                </li>
-                <li class="nav-item">
-                    <i class="ph ph-magnifying-glass ph-lg"></i> Research Agent
-                </li>
-                <li class="nav-item">
-                    <i class="ph ph-file-text ph-lg"></i> CAM Generator
-                </li>
-                <li class="nav-item">
-                    <i class="ph ph-gear ph-lg"></i> Settings
-                </li>
-            </ul>
+            <div class="flex items-center gap-6">
+                <!-- Calc Trigger (Part of Sec 4 Requirements) -->
+                <button id="calcToggle" class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-slate-700 hover:border-neon-blue hover:text-neon-blue transition-all group">
+                    <i class="ph ph-calculator text-2xl text-slate-300 group-hover:text-neon-blue transition-colors"></i>
+                </button>
+
+                <div class="h-10 w-px bg-slate-700"></div>
+
+                <div class="flex items-center gap-4 bg-slate-800/60 py-2 px-4 rounded-xl border border-white/5">
+                    <div class="text-right">
+                        <div class="text-sm font-semibold text-white">Rahul Sharma</div>
+                        <div class="text-xs text-slate-400">Credit Analyst</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg border-2 border-slate-800">
+                        RS
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECTION 1: The Data Ingestor (Top Half) -->
+        <section class="flex flex-col gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left Zone: Structured Data -->
+                <div class="relative group cursor-pointer">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                    <div class="relative h-full bg-slate-800/80 backdrop-blur-md border border-green-500/50 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-2xl">
+                        <div class="flex gap-4 mb-4 text-green-400">
+                            <i class="ph ph-file-xls text-5xl drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]"></i>
+                            <i class="ph ph-file-csv text-5xl drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Structured Data</h3>
+                        <p class="text-slate-300 mb-6">Upload GST Returns (GSTR-2A/3B) & Bank Statements</p>
+                        
+                        <!-- Animated Success State -->
+                        <div class="mt-auto inline-flex items-center gap-2 bg-green-500/20 text-green-300 px-4 py-2 rounded-full border border-green-500/30 font-medium">
+                            <i class="ph ph-check-circle-fill text-lg animate-pulse"></i>
+                            File Uploaded. Cross-leveraging data...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Zone: Unstructured Data -->
+                <div class="relative group cursor-pointer">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                    <div class="relative h-full bg-slate-800/50 backdrop-blur-md border border-dashed border-slate-600 hover:border-blue-500 rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all">
+                        <div class="flex gap-4 mb-4 text-slate-400 group-hover:text-blue-400 transition-colors">
+                            <i class="ph ph-file-pdf text-5xl"></i>
+                            <i class="ph ph-file-doc text-5xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Unstructured Data</h3>
+                        <p class="text-slate-400">Upload Annual Reports, Financials & Legal Notices</p>
+                        
+                        <div class="mt-6 text-sm text-slate-500 font-medium tracking-widest uppercase">
+                            Drag & Drop Ready
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Processing Terminal -->
+            <div class="w-full bg-[#0a0f1c] border border-slate-700 rounded-xl p-4 overflow-hidden shadow-inner relative font-mono text-sm leading-relaxed">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-transparent"></div>
+                <div class="flex gap-2 mb-3 px-1 border-b border-slate-800 pb-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-2 text-xs text-slate-500 font-sans tracking-wider">AI Processing Terminal</span>
+                </div>
+                <div class="space-y-2 text-slate-300 px-2 py-1">
+                    <p><span class="text-green-400 mr-2">[✓]</span>Extracting commitments from messy PDF...</p>
+                    <p><span class="text-green-400 mr-2">[✓]</span>Cross-checking GST flows against Bank Statements...</p>
+                    <p class="text-red-400 animate-pulse font-bold bg-red-900/20 py-1 px-2 rounded -mx-2 inline-block"><span class="mr-2">[⚠️]</span>RED FLAG: Minor anomaly detected in GSTR-3B matching.</p>
+                    <p class="text-slate-500">> Awaiting further instructions<span class="inline-block w-2 h-4 bg-slate-400 ml-1 animate-pulse align-middle"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MIDDLE ROW -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10"> <!-- Left 5 cols, Right 7 cols -->
             
-            <div class="user-profile">
-                <div class="avatar">RS</div>
-                <div class="user-info">
-                    <div class="name">Rahul Sharma</div>
-                    <div class="role">Credit Analyst</div>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <!-- Top Right Custom Calculator Toggle -->
-            <div style="position: absolute; top: 32px; right: 40px;">
-                <div class="calc-toggle" id="calcToggleBtn" title="Intelli-Calc">
-                    <i class="ph ph-calculator ph-lg"></i>
-                </div>
-            </div>
-
-            <!-- Section A: The Command Center -->
-            <header class="command-header">
-                <div class="greeting">
-                    <h1>Welcome back, Rahul.</h1>
-                    <p>Here is the latest credit intelligence synthesized for your portfolio.</p>
-                </div>
-                <div class="stat-cards">
-                    <div class="stat-card glass-panel" id="card1">
-                        <i class="ph ph-clock stat-icon"></i>
-                        <div class="stat-label">Pending Apps</div>
-                        <div class="stat-value">12</div>
-                    </div>
-                    <div class="stat-card glass-panel" id="card2">
-                        <i class="ph ph-brain stat-icon text-ai"></i>
-                        <div class="stat-label">AI Accuracy</div>
-                        <div class="stat-value" style="color: var(--color-success);">98.4%</div>
-                    </div>
-                    <div class="stat-card glass-panel" id="card3">
-                        <i class="ph ph-warning-circle stat-icon"></i>
-                        <div class="stat-label">Anomalies Detected</div>
-                        <div class="stat-value" style="color: var(--color-danger);">3</div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="dashboard-grid">
-                <!-- Section B: The Data Ingestor -->
-                <section class="data-ingestion glass-panel">
-                    <div style="padding: 24px;">
-                        <h2 class="section-title">Data Ingestion Engine</h2>
-                        <div class="upload-zones">
-                            <div class="upload-zone" id="structuredZone">
-                                <i class="ph ph-table upload-icon"></i>
-                                <h3>Structured Data</h3>
-                                <p>Upload GST Returns (GSTR-2A/3B) & Bank Statements (CSV/Excel)</p>
-                            </div>
-                            <div class="upload-zone" id="unstructuredZone">
-                                <i class="ph ph-file-pdf upload-icon" style="color: var(--ai-purple);"></i>
-                                <h3>Unstructured Data</h3>
-                                <p>Upload Annual Reports, Legal Notices & MCA Filings (PDF/Doc)</p>
-                            </div>
-                        </div>
-                        <div class="terminal-log" id="terminalLog">
-                            <p>> Intelli-Credit Core Engine initialized v.4.2</p>
-                            <p>> Awaiting data ingestion... <span class="cursor"></span></p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Section C: The Research Agent -->
-                <section class="research-grid">
-                    <div class="glass-panel web-intel-feed">
-                        <h2 class="section-title">Live Web Intel (AI Scraped)</h2>
-                        <div class="feed-list" id="feedList">
-                            <div class="feed-item danger">
-                                <i class="ph ph-warning ph-lg" style="color: var(--color-danger); margin-top: 4px;"></i>
-                                <div class="feed-content">
-                                    <strong>Red Flag detected</strong>
-                                    <p>Promoter litigation found on e-Courts portal regarding subsidiary defaults.</p>
-                                </div>
-                            </div>
-                            <div class="feed-item warning">
-                                <i class="ph ph-newspaper ph-lg" style="color: #f59e0b; margin-top: 4px;"></i>
-                                <div class="feed-content">
-                                    <strong>Sector News</strong>
-                                    <p>RBI tightens NBFC rules, impacting cost of funds for Tier-2 borrowers.</p>
-                                </div>
-                            </div>
-                            <div class="feed-item">
-                                <i class="ph ph-check-circle ph-lg" style="color: var(--color-success); margin-top: 4px;"></i>
-                                <div class="feed-content">
-                                    <strong>Verification</strong>
-                                    <p>MCA filings match with audited financials provided for FY24.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- SECTION 2: The Research Agent & Primary Insights (Middle Left) -->
+            <section class="lg:col-span-5 flex flex-col gap-6">
+                <!-- Outer Glass Card for Section 2 -->
+                <div class="bg-slate-800/60 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl h-full flex flex-col">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-magnifying-glass text-neon-blue"></i>
+                        The Research Agent & Insights
+                    </h2>
                     
-                    <div class="glass-panel insight-portal">
-                        <h2 class="section-title">Primary Insight Portal</h2>
-                        <textarea class="insight-textarea" placeholder="Input Due Diligence / Site Visit Notes here (e.g., Factory found operating at 40% capacity...)"></textarea>
-                        <button class="btn-ai" id="analyzeBtn">
-                            <i class="ph ph-sparkle"></i> Analyze Nuances & Adjust Risk
-                        </button>
-                    </div>
-                </section>
+                    <div class="flex flex-col gap-6 flex-1">
+                        <!-- Column 1 (Row 1 here): Web-Scale Secondary Research -->
+                        <div class="bg-slate-900/50 rounded-xl p-5 border border-slate-700/50">
+                            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Web-Scale Secondary Research</h3>
+                            <div class="space-y-4">
+                                <!-- News Item 1 -->
+                                <div class="bg-red-950/30 border-l-4 border-red-500 p-4 rounded-r-lg shadow-sm">
+                                    <p class="text-red-200 text-sm font-medium leading-relaxed">
+                                        <span class="mr-1">🔴</span> <strong>e-Courts Portal:</strong> Active litigation found against Promoters.
+                                    </p>
+                                </div>
+                                <!-- News Item 2 -->
+                                <div class="bg-blue-950/30 border-l-4 border-blue-400 p-4 rounded-r-lg shadow-sm">
+                                    <p class="text-blue-100 text-sm font-medium leading-relaxed">
+                                        <span class="mr-1">📰</span> <strong>Sector Update:</strong> RBI introduces new regulations on NBFCs.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- Section D: The Recommendation Engine -> Output -->
-                <section class="recommendation-engine glass-panel">
-                    <div class="verdict-banner rejected" id="verdictBanner">
-                        <div style="font-size: 0.9rem; margin-bottom: 8px; color: var(--color-text-muted);">AI Recommendation</div>
-                        <div class="verdict-status">REJECTED / HIGH RISK</div>
+                        <!-- Column 2 (Row 2 here): Primary Insight Portal -->
+                        <div class="flex-1 flex flex-col bg-slate-900/50 rounded-xl p-5 border border-slate-700/50">
+                            <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Primary Insight Portal</h3>
+                            <label class="sr-only">Input Due Diligence / Factory Site Visit Notes</label>
+                            <div class="relative flex-1 flex flex-col">
+                                <span class="absolute -top-2 left-3 bg-slate-900 px-1 text-xs text-blue-400 font-medium">Input Due Diligence / Factory Site Visit Notes</span>
+                                <textarea class="w-full flex-1 bg-slate-800/50 border border-slate-600 rounded-lg p-4 pt-5 text-white focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-all resize-none shadow-inner" placeholder="Enter notes...">Factory visited on 12th Oct. Operating at only 40% capacity. Labor unrest observed.</textarea>
+                            </div>
+                            <!-- Glowing Blue Button -->
+                            <button class="w-full mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)] border border-blue-400/50 flex items-center justify-center gap-2 group">
+                                <i class="ph ph-magic-wand group-hover:rotate-12 transition-transform"></i>
+                                Synthesize & Adjust Risk Score
+                            </button>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: The CAM Generator & Decision Engine (Middle Right) -->
+            <section class="lg:col-span-7 flex flex-col">
+                <div class="relative h-full">
+                    <!-- High Contrast Glow -->
+                    <div class="absolute -inset-1 bg-gradient-to-b from-red-600/30 to-slate-900 rounded-3xl blur-xl pointer-events-none"></div>
                     
-                    <div class="financials-box">
-                        <div class="fin-item">
-                            <span>Requested Limit</span>
-                            <span class="fin-value">₹50 Crores</span>
+                    <div class="relative bg-slate-850 backdrop-blur-2xl border border-slate-700/80 rounded-3xl p-8 shadow-2xl h-full flex flex-col overflow-hidden">
+                        
+                        <div class="flex justify-between items-start mb-8">
+                            <div>
+                                <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                                    <i class="ph ph-scales text-slate-400"></i> Final Recommendation
+                                </h2>
+                                <p class="text-slate-400 mt-1">CAM Generator & Decision Engine Output</p>
+                            </div>
+                            
+                            <!-- The Verdict Badge -->
+                            <div class="bg-red-500/10 border-2 border-red-500 px-6 py-3 rounded-xl shadow-[0_0_30px_rgba(239,68,68,0.4)] animate-pulse-slow">
+                                <div class="text-red-500 font-black tracking-widest text-lg drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]">
+                                    STATUS: REJECTED / HIGH RISK
+                                </div>
+                            </div>
                         </div>
-                        <div class="fin-item" style="border-left: 3px solid var(--color-danger);">
-                            <span>Recommended Limit</span>
-                            <span class="fin-value" style="color: var(--color-danger);">₹0 Crores</span>
-                        </div>
-                        <div class="fin-item">
-                            <span>Computed Risk Premium</span>
-                            <span class="fin-value">12.5%</span>
-                        </div>
-                        <div class="fin-item">
-                            <span>Avg DSCR (Predicted)</span>
-                            <span class="fin-value" style="color: var(--color-danger);">0.8x</span>
-                        </div>
-                    </div>
 
-                    <div class="radar-box">
-                        <!-- Custom Radar Chart Visual via CSS layout + svg if needed, but placeholder per prompt -->
-                        <div class="radar-chart-placeholder">
-                            <!-- In a full app, Chart.js would be used. Using CSS placeholder -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+                            <!-- Left: Financials & Radar -->
+                            <div class="flex flex-col gap-6">
+                                <!-- Financials -->
+                                <div class="bg-slate-900 rounded-xl p-6 border border-slate-700 shadow-inner">
+                                    <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-800">
+                                        <span class="text-slate-400 font-medium">Calculated Limit:</span>
+                                        <span class="text-2xl font-mon font-bold text-red-400 drop-shadow-md">₹0.00</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-slate-400 font-medium">Suggested Risk Premium:</span>
+                                        <span class="text-xl font-bold tracking-wide text-slate-300">N/A</span>
+                                    </div>
+                                </div>
+
+                                <!-- 5 Cs Radar Chart (CSS simulated) -->
+                                <div class="flex-1 bg-slate-900 rounded-xl p-6 border border-slate-700 shadow-inner relative flex flex-col items-center justify-center">
+                                    <h4 class="absolute top-4 left-4 text-xs font-bold text-slate-500 uppercase tracking-widest">5 Cs of Credit Radar</h4>
+                                    
+                                    <!-- Radar Implementation -->
+                                    <div class="relative w-48 h-48 mt-4">
+                                        <!-- Concentric grids -->
+                                        <div class="absolute inset-4 border border-slate-700 rounded-full"></div>
+                                        <div class="absolute inset-10 border border-slate-700 rounded-full"></div>
+                                        <div class="absolute inset-16 border border-slate-700 rounded-full"></div>
+                                        <div class="absolute inset-22 border border-slate-700 rounded-full"></div>
+                                        
+                                        <!-- Axis lines -->
+                                        <div class="absolute inset-0 m-auto w-full h-[1px] bg-slate-700"></div>
+                                        <div class="absolute inset-0 m-auto w-[1px] h-full bg-slate-700"></div>
+                                        <div class="absolute inset-0 m-auto w-full h-[1px] bg-slate-700 rotate-45"></div>
+                                        <div class="absolute inset-0 m-auto w-[1px] h-full bg-slate-700 rotate-45"></div>
+
+                                        <!-- The Data Polygon for "Rejected" -->
+                                        <svg class="absolute inset-0 w-full h-full drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]" viewBox="0 0 100 100">
+                                            <polygon 
+                                                points="50,20 80,45 65,85 35,85 20,45" 
+                                                fill="rgba(239, 68, 68, 0.2)" 
+                                                stroke="#ef4444" 
+                                                stroke-width="2"
+                                                class="transition-all duration-1000"
+                                            />
+                                        </svg>
+                                        
+                                        <!-- Labels -->
+                                        <span class="absolute -top-6 inset-x-0 text-center text-xs font-semibold text-slate-300">Capital</span>
+                                        <span class="absolute top-1/2 -right-16 -translate-y-1/2 text-xs font-semibold text-red-400">Capacity</span>
+                                        <span class="absolute -bottom-6 inset-x-0 text-center text-xs font-semibold text-slate-300">Collateral</span>
+                                        <span class="absolute top-1/2 -left-16 -translate-y-1/2 text-xs font-semibold text-red-400">Character</span>
+                                        <span class="absolute bottom-2 -right-12 text-xs font-semibold text-slate-300">Conditions</span>
+                                    </div>
+                                    <div class="mt-6 text-xs text-slate-500 italic text-center">Radar shows heavily compromised Capacity and Character scores.</div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Explainable AI Box -->
+                            <div class="flex flex-col">
+                                <div class="bg-blue-900/10 border border-blue-500/30 rounded-xl p-6 h-full flex flex-col relative overflow-hidden group">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[40px]"></div>
+                                    <h3 class="flex items-center gap-2 text-neon-blue font-bold tracking-wide mb-4">
+                                        <i class="ph ph-brain text-xl"></i> AI Decision Logic (XAI)
+                                    </h3>
+                                    
+                                    <div class="prose prose-invert prose-p:text-slate-300 prose-p:leading-relaxed text-[15px]">
+                                        <p>
+                                            <span class="text-white font-semibold">Although GST flows show ₹1.5 Cr revenue, the system recommends Rejection.</span>
+                                        </p>
+                                        <p class="mt-4 border-l-2 border-slate-600 pl-4">
+                                            <strong class="text-red-400">Reason:</strong> Secondary research found active legal disputes on e-Courts, and Primary Site Visit notes indicate only 40% operating capacity. High risk of default.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="mt-auto pt-6 border-t border-blue-500/20">
+                                        <div class="w-full bg-slate-900 rounded-full h-2 mb-2">
+                                            <div class="bg-red-500 h-2 rounded-full w-[85%]"></div>
+                                        </div>
+                                        <div class="flex justify-between text-xs font-medium">
+                                            <span class="text-slate-400">Calculated Default Probability</span>
+                                            <span class="text-red-400">85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="xai-box" style="grid-column: 1 / -1;">
-                        <h3 class="xai-title"><i class="ph ph-brain"></i> AI Decision Logic (Transparent View)</h3>
-                        <p class="xai-content">
-                            <strong>Reasoning:</strong> Rejected due to high litigation risk found in MCA filings during secondary research, despite stable GSTR-3B flows. Cross-leveraging bank statements revealed circular trading indicators with 3 related entities. Site visit notes supplied by analyst confirm sub-optimal capacity utilization (est. 40%). The compounded risk breaches the institution's threshold parameters.
-                        </p>
                     </div>
-
-                    <div class="cam-action">
-                        <button class="btn-primary btn-massive" id="generateCamBtn">
-                            <i class="ph ph-file-doc" style="margin-right: 8px;"></i> Generate & Download Final CAM
-                        </button>
-                    </div>
-                </section>
-            </div>
-            
-            <div style="height: 100px;"></div>
-        </main>
+                </div>
+            </section>
+        </div>
     </div>
 
-    <!-- Section E: Intelli-Credit Copilot (Floating AI Chat) -->
-    <div class="copilot-fab" id="copilotFab" title="Ask Intelli-Credit">
-        <i class="ph ph-sparkle"></i>
-    </div>
-
-    <div class="chat-widget glass-panel" id="chatWidget">
-        <div class="chat-header">
-            <i class="ph ph-robot ph-xl" style="color: var(--ai-cyan);"></i>
-            <div>
-                <strong style="display: block;">Intelli-Credit Assistant</strong>
-                <span style="font-size: 0.75rem; color: var(--color-text-muted);">Ask me about the CAM or Data</span>
+    <!-- SECTION 4: Intelli-Credit Copilot & Tools (Bottom / Floating Elements) -->
+    
+    <!-- Smart Calculator (Slide-out widget) -->
+    <div id="calcPanel" class="fixed top-0 right-[-450px] w-[400px] h-full bg-slate-900/95 backdrop-blur-2xl border-l border-white/10 shadow-[-20px_0_50px_rgba(0,0,0,0.5)] transition-all duration-500 z-50 p-6 flex flex-col">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b border-white/5">
+            <h3 class="text-xl font-bold text-white flex items-center gap-2"><i class="ph ph-calculator text-neon-blue"></i> Smart Credit Calculator</h3>
+            <button id="closeCalc" class="text-slate-400 hover:text-white transition-colors"><i class="ph ph-x text-2xl"></i></button>
+        </div>
+        
+        <div class="flex-1 flex flex-col gap-6">
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Loan Amount (₹)</label>
+                <input type="text" value="₹ 5,00,00,000" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white font-mono focus:border-neon-blue focus:outline-none" />
             </div>
-            <button id="closeChatBtn" style="margin-left: auto; background: none; border: none; color: white; cursor: pointer;">
-                <i class="ph ph-x ph-lg"></i>
+            
+            <div class="flex gap-4">
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 flex-1">
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Int. Rate (%)</label>
+                    <input type="text" value="12.5" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white font-mono focus:border-neon-blue focus:outline-none" />
+                </div>
+                <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 flex-1">
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Tenure (Mos)</label>
+                    <input type="text" value="60" class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-white font-mono focus:border-neon-blue focus:outline-none" />
+                </div>
+            </div>
+            
+            <button class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 rounded-xl transition-colors mt-2">
+                Calculate EMI & DSCR
             </button>
-        </div>
-        
-        <div class="chat-body" id="chatBody">
-            <div class="chat-bubble ai">
-                Hello Rahul. I've analyzed the latest portfolio data. How can I assist you with this credit appraisal?
-            </div>
-            <!-- Typing indicator initially hidden -->
-            <div class="chat-bubble ai typing-indicator" id="typingIndicator" style="display: none;">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+            
+            <div class="mt-4 bg-neon-blue/10 border border-neon-blue/30 rounded-xl p-6 text-center shadow-[inset_0_0_20px_rgba(6,182,212,0.1)]">
+                <div class="text-sm font-medium text-slate-400 mb-1">Estimated Monthly EMI</div>
+                <div class="text-3xl font-mono font-bold text-neon-cyan drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]">₹11,24,500</div>
+                <div class="mt-4 pt-4 border-t border-neon-blue/20 flex justify-between">
+                    <span class="text-slate-400">DSCR</span>
+                    <span class="font-bold text-red-400">0.82x (Critical)</span>
+                </div>
             </div>
         </div>
-        
-        <div class="chat-footer">
-            <div class="smart-chips">
-                <div class="chip">Explain GST vs Bank Statement anomalies</div>
-                <div class="chip">Summarize promoter litigation news</div>
-                <div class="chip">Why is the risk premium set to 12.5%?</div>
+    </div>
+
+    <!-- Expanded Floating Chat Widget -->
+    <div class="fixed bottom-8 right-8 w-[420px] bg-slate-800/80 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(59,130,246,0.15)] overflow-hidden z-40 transform transition-all duration-300">
+        <!-- Header -->
+        <div class="bg-blue-900/40 p-4 border-b border-white/5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <i class="ph ph-robot text-2xl text-neon-blue drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]"></i>
+                    <div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full border border-slate-800"></div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-sm tracking-wide">Credit Copilot</h4>
+                    <span class="text-xs text-blue-300">Intelli-Credit AI • Online</span>
+                </div>
             </div>
-            <div class="chat-input-area" style="margin-top: 12px;">
-                <input type="text" class="chat-input" placeholder="Type your query..." id="chatInput">
-                <button class="send-btn" id="sendMessageBtn">
-                    <i class="ph ph-paper-plane-right ph-lg"></i>
+            <div class="flex gap-2">
+                <button class="text-slate-400 hover:text-white"><i class="ph ph-arrows-out-simple"></i></button>
+            </div>
+        </div>
+        
+        <!-- Chat Body -->
+        <div class="p-5 flex flex-col gap-5 h-[320px] overflow-y-auto custom-scrollbar bg-slate-900/40">
+            <!-- User Message -->
+            <div class="flex justify-end">
+                <div class="bg-blue-600 text-white p-3 px-5 rounded-2xl rounded-tr-sm text-sm shadow-md max-w-[85%] font-medium">
+                    Why did you flag the GST data?
+                </div>
+            </div>
+
+            <!-- AI Message -->
+            <div class="flex justify-start">
+                <div class="bg-slate-800 border border-slate-700 text-slate-200 p-4 rounded-2xl rounded-tl-sm text-[13.5px] leading-relaxed shadow-lg max-w-[90%] relative">
+                    <div class="absolute top-0 -left-12 w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
+                        <i class="ph ph-sparkle text-neon-blue text-sm"></i>
+                    </div>
+                    I found a discrepancy of <strong class="text-red-400">₹20 Lakhs</strong> between the declared GSTR-3B revenue and actual inward remittances in the bank statement, hinting at potential circular trading.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chat Input -->
+        <div class="p-4 bg-slate-800/90 border-t border-white/5">
+            <div class="relative">
+                <input type="text" placeholder="Ask about the CAM or financials..." class="w-full bg-slate-900 border border-slate-700 rounded-full py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-neon-blue transition-colors">
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-500 flex items-center justify-center text-white transition-colors shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                    <i class="ph ph-paper-plane-right"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Section F: Intelli-Calc Widget -->
-    <div class="calc-widget" id="calcWidget">
-        <div class="calc-header">
-            <h3><i class="ph ph-calculator"></i> Intelli-Calc</h3>
-            <button class="close-calc" id="closeCalcBtn"><i class="ph ph-x"></i></button>
-        </div>
-        
-        <div class="mode-switch">
-            <button class="mode-btn active" id="modeBasic">Basic</button>
-            <button class="mode-btn" id="modeCredit">Credit Mode</button>
-        </div>
-        
-        <div class="calc-display">
-            <div class="calc-memory" id="calcMem"></div>
-            <div class="calc-result" id="calcRes">0</div>
-        </div>
-        
-        <div class="calc-main-area" id="calcMainArea">
-            <div class="calc-grid">
-                <button class="calc-key" onclick="clearCalc()">C</button>
-                <button class="calc-key" onclick="appendToCalc('(')">(</button>
-                <button class="calc-key" onclick="appendToCalc(')')">)</button>
-                <button class="calc-key operator" onclick="appendToCalc('/')">/</button>
-                
-                <button class="calc-key" onclick="appendToCalc('7')">7</button>
-                <button class="calc-key" onclick="appendToCalc('8')">8</button>
-                <button class="calc-key" onclick="appendToCalc('9')">9</button>
-                <button class="calc-key operator" onclick="appendToCalc('*')">*</button>
-                
-                <button class="calc-key" onclick="appendToCalc('4')">4</button>
-                <button class="calc-key" onclick="appendToCalc('5')">5</button>
-                <button class="calc-key" onclick="appendToCalc('6')">6</button>
-                <button class="calc-key operator" onclick="appendToCalc('-')">-</button>
-                
-                <button class="calc-key" onclick="appendToCalc('1')">1</button>
-                <button class="calc-key" onclick="appendToCalc('2')">2</button>
-                <button class="calc-key" onclick="appendToCalc('3')">3</button>
-                <button class="calc-key operator" onclick="appendToCalc('+')">+</button>
-                
-                <button class="calc-key" onclick="appendToCalc('0')" style="grid-column: span 2;">0</button>
-                <button class="calc-key" onclick="appendToCalc('.')">.</button>
-                <button class="calc-key equals" onclick="calculateResult()">=</button>
-            </div>
-            
-            <div class="credit-inputs">
-                <div class="input-group">
-                    <label>Requested Loan Amount (₹)</label>
-                    <input type="number" id="c_loan" placeholder="e.g. 50000000">
-                </div>
-                <div class="input-group">
-                    <label>Interest Rate (%)</label>
-                    <input type="number" id="c_rate" placeholder="e.g. 12.5" step="0.1">
-                </div>
-                <div class="input-group">
-                    <label>Tenure (Months)</label>
-                    <input type="number" id="c_tenure" placeholder="e.g. 60">
-                </div>
-                <button class="btn-ai" style="margin-top: 8px; width: 100%;" onclick="calculateEMI()">Calculate EMI & DSCR</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Logic -->
-    <script type="module" src="./main.js"></script>
+    <!-- Basic inline script for Calculator toggle -->
+    <script>
+        document.getElementById('calcToggle').addEventListener('click', function() {
+            document.getElementById('calcPanel').style.right = '0';
+        });
+        document.getElementById('closeCalc').addEventListener('click', function() {
+            document.getElementById('calcPanel').style.right = '-450px';
+        });
+    </script>
 </body>
 </html>

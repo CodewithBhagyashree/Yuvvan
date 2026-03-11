@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Form, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+import fastapi.middleware.cors
 import google.generativeai as genai
 import os
-
+ 
 app = FastAPI()
 
 # CORS Settings: Yeh tumhare frontend ko is API se baat karne ki permission deta hai
 app.add_middleware(
-    CORSMiddleware,
+    fastapi.middleware.cors.CORSMiddleware,
     allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
